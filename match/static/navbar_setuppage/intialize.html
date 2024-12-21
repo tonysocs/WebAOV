@@ -1,0 +1,96 @@
+<head>
+    <style>
+        /*Thanh điều hướng*/
+        .home_section {
+            position: relative;
+            justify-content: space-between;
+            width: 98vw;
+            height: 20vh;
+            
+        }
+
+        nav {
+            display: flex;
+            padding: 3vw;
+            margin: 2px;
+            padding: 50px auto 10px auto;
+
+        }
+
+        nav a,
+        span {
+            margin: auto;
+        }
+
+        .text {
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px white;
+            border-radius: 5px;
+            padding: 3px
+        }
+
+        a.text {
+            background: transparent;
+            color: whitesmoke;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        a.text::after {
+            content: '';
+            /* Tạo phần tử giả */
+            position: absolute;
+            bottom: 0;
+            /* Vị trí ở viền dưới */
+            left: 0;
+            width: 100%;
+            /* Dài bằng toàn bộ nút */
+            height: 2px;
+            /* Độ dày viền sáng */
+            background: rgba(255, 255, 255, 0.3);
+            /* Màu ánh sáng (trắng nhẹ) */
+            box-shadow: 0 -5px 15px rgba(255, 255, 255, 0.3);
+            /* Hắt sáng lên trên, nhẹ hơn */
+            transition: all 0.3s ease;
+            /* Hiệu ứng mượt khi hover */
+            opacity: 0;
+            /* Ẩn mặc định */
+        }
+
+        a.text:hover::after {
+            opacity: 1;
+            /* Hiển thị khi hover */
+        }
+    </style>
+</head>
+<body>
+    <!--1. Thanh điều hướng-->
+    <div class="home_section">
+        <nav> <!--navigation bar-->
+            <img src="image/logo.png" width="50" alt="logo" title="logo">
+            <span class="text" style="color: white;">Liên quân <br> mobile</span>
+            <a href="http://127.0.0.1:3000/Website/Home_page/index.html" class="text"  onclick="window.top.location.href=this.href; return false;">
+                <span class="text">Trang chủ</span>
+            </a>
+            <a href="http://127.0.0.1:3000/Website/Tournament/tournament.html" class="text"  onclick="window.top.location.href=this.href; return false;">
+                <span class="text">Giải đấu</span>
+            </a>
+            <a href="http://127.0.0.1:3000/Website/gameplay/Gameplay.html" class="text"  onclick="window.top.location.href=this.href; return false;">
+                <span class="text">Gameplay</span>
+            </a>
+            <a href="#" class="text"  onclick="window.top.location.href=this.href; return false;">
+                <span class="text">Livetream</span>
+            </a>
+           
+            <img src="image/search.png" width="40"> <br />
+        </nav>
+    </div>
+</body>
+</html>
+
+
+

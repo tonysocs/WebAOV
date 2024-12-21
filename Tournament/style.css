@@ -1,0 +1,186 @@
+body{
+   
+    display: grid;
+  place-items: center;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.card_left{
+    /* border: 2px solid white; */
+    position: fixed;
+    left: 4vw;
+}
+.card_right{
+    /* border: 2px solid white; */
+    position: fixed;
+    right: 4vw;
+}
+.card{
+    top: 30vh;
+    width: 15%;
+    max-width: 20px;
+    min-width: 200px ;
+    /* Độ rộng card */
+    background-color: #ffffff;
+    /* Nền trắng */
+    border-radius: 15px;
+    /* Bo góc mềm mại */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Hiệu ứng đổ bóng */
+    overflow: hidden;
+    /* Để ảnh bo theo góc của card */
+    text-align: center;
+    /* Căn giữa nội dung */
+    margin: auto;
+    /* Căn giữa card */
+    transition: all 0.3s ease-in-out;
+    /* Hiệu ứng mượt */
+    display: grid; /* Kích hoạt Grid */
+    place-items: center; /* Căn giữa cả ngang và dọc */
+    height: 50%;              /* Đảm bảo chiều cao của container */
+}
+.card-image {
+    width: 70%;
+    position: absolute;
+    top: 4%;
+   margin: 4% auto 0px auto ;
+    /* Ảnh full-width */
+    height: auto;
+    /* Giữ tỷ lệ ảnh */
+}
+.card-description {
+    position: relative;
+    top: 20%;
+    padding: 15px;
+    /* Khoảng cách nội dung */
+    font-size: 16px;
+    /* Cỡ chữ */
+    font-weight: bold;
+    /* Chữ đậm */
+    color: #4c4c4c;
+    /* Màu chữ */
+}
+.bt_card{
+    position: absolute;
+    top: 80%;
+    right: 18%;
+    margin: 20px auto 30px auto;         /* Căn giữa theo chiều ngang */
+}
+.read-more {
+    /* Khoảng cách so với văn bản */
+    padding: 10px 20px;
+    /* Khoảng cách trong nút */
+    background: linear-gradient(to right, #7d57ff, #ff00ff);
+    /* Hiệu ứng gradient */
+    color: #ffffff;
+    /* Màu chữ trắng */
+    border: none;
+    /* Không viền */
+    border-radius: 20px;
+    /* Bo góc nút */
+    font-size: 14px;
+    /* Cỡ chữ */
+    font-weight: bold;
+    /* Chữ đậm */
+    cursor: pointer;
+    /* Hiệu ứng con trỏ */
+    transition: all 0.3s ease-in-out;
+    /* Hiệu ứng mượt */
+}
+
+/* Hiệu ứng hover cho nút */
+.read-more:hover {
+    transform: scale(1.1);
+    /* Phóng to nút khi hover */
+    box-shadow: 0 4px 15px rgba(128, 0, 255, 0.4);
+    /* Hiệu ứng đổ bóng */
+}
+
+/*các giải đấu*/
+.tournament-list{
+    z-index: 1;
+    /* border: 2px solid white; */
+    position: relative;
+    width: 55vw;
+}
+.tournament-list ul{
+    list-style-type: none;
+    padding: 2vh;
+}
+li{
+    margin-top: 2vh;
+}
+.item{
+    border: 2px solid transparent;
+    display: flex;
+    align-items: stretch; /* Cả ảnh và nội dung sẽ cùng chiều cao */
+    border-radius: 8px; /* Bo góc */
+    overflow: hidden; /* Cắt nội dung dư thừa */
+    background-color: transparent;
+}
+.item_img{
+    width: 40%; /* Ảnh chiếm 50% chiều rộng container */
+    object-fit: contain; /* Đảm bảo ảnh không bị biến dạng */
+    height: auto;
+}
+.description{
+   margin-left: 1.4vw; 
+   display: flex;
+   flex-direction: column; /* Căn chỉnh các đoạn văn theo chiều dọc */
+   justify-content: space-between; /* Dãn đều các phần tử con trong phần mô tả */
+   height: 100%; /* Đảm bảo chiều cao của phần mô tả chiếm đầy container */
+}
+.description *{
+    text-align: left;
+    margin-bottom: 0.7vh;
+}
+.description h2 {
+    font-size: 1.1vw;
+    width: 6vw;
+    background-color: #3db7b5;
+    color: white;
+    font-weight: bold;
+    border-radius: 2px; /* Bo góc */
+}
+.description h1 {
+   font-size: 1.4vw;
+   color: rgb(242, 110, 9);
+   font-family:Arial, Helvetica, sans-serif;
+}
+.description p {
+    display: -webkit-box; /* Sử dụng box để điều chỉnh số dòng */
+    -webkit-box-orient: vertical; /* Đặt hướng box theo chiều dọc */
+    -webkit-line-clamp: 2; /* Giới hạn số dòng là 2 */
+    overflow: hidden; /* Ẩn nội dung vượt quá số dòng */
+    text-overflow: ellipsis; /* Thêm dấu ba chấm khi bị cắt */
+    color: white;
+}
+.description div {
+    color: #9c9696;
+}
+.tournament-list>h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: transparent; /* Nền trong suốt */
+    color: #ffd700; /* Màu chữ vàng */
+    font-family: Arial, sans-serif;
+    font-size: 3vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.8); /* Làm cho text-shadow rõ hơn */
+}
+.item:hover img {
+    transform: scale(1.05); /* Phóng to ảnh lên 5% */
+  }
+  .item:hover h1 {
+    text-decoration: underline; /* Gạch chân thẻ h1 */
+  }
+.item:hover {
+    cursor: pointer;
+}
+

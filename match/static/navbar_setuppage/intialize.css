@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, rgb(0, 0, 0),rgb(43, 1, 1), #920000);
+    color: white;
+    position: relative;
+}
+
+/*Thanh điều hướng*/
+.home_section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 17vh;
+}
+
+nav {
+    width: 100vw;
+    display: flex;
+    padding: 3vw;
+    margin: 2px;
+    padding: 50px auto 10px auto;
+
+}
+
+nav button,
+span {
+    margin: auto;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px white;
+    border-radius: 5px;
+    padding: 3px
+}
+
+button.text {
+    background: transparent;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button.text::after {
+    content: '';
+    /* Tạo phần tử giả */
+    position: absolute;
+    bottom: 0;
+    /* Vị trí ở viền dưới */
+    left: 0;
+    width: 100%;
+    /* Dài bằng toàn bộ nút */
+    height: 2px;
+    /* Độ dày viền sáng */
+    background: rgba(255, 255, 255, 0.3);
+    /* Màu ánh sáng (trắng nhẹ) */
+    box-shadow: 0 -5px 15px rgba(255, 255, 255, 0.3);
+    /* Hắt sáng lên trên, nhẹ hơn */
+    transition: all 0.3s ease;
+    /* Hiệu ứng mượt khi hover */
+    opacity: 0;
+    /* Ẩn mặc định */
+}
+
+button.text:hover::after {
+    opacity: 1;
+    /* Hiển thị khi hover */
+}

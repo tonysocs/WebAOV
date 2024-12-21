@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameplay</title>
+    <link rel="stylesheet" href="/match/static/navbar_setuppage/intialize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <head>
+        <!--1.Thanh navigation and set up page-->
+        <iframe src="/match/static/navbar_setuppage/intialize.html" frameborder="0"></iframe>
+    </head>
+    <main>
+        <h1>Gameplay</h1>
+        <section>
+            <div class="content">
+                <button class="button_content" id="game_mode">Chế độ chơi</button>
+                <button class="button_content" id="map_button">Bản đồ</button>
+                <button class="button_content"  id="tip_button" >Mẹo nhỏ</button>
+            </div>
+            <div class="item_container">
+                <button class="item" onclick="showDetails('Cúp Vinh Quang')">
+                    <img src="image/item1.png" alt="Cúp Vinh Quang" class="img_item">
+                    <p>Cúp Vinh Quang</p>
+                </button>
+                <button class="item" onclick="showDetails('5v5-Bình nguyên vô tận')">
+                    <img src="image/item2.png" alt="5v5-Bình nguyên vô tận" class="img_item">
+                    <p>5v5-Bình nguyên vô tận</p>
+                </button>
+                <button class="item" onclick="showDetails('5v5 Aram- Hỗn loạn đường giữa')">
+                    <img src="image/item3.png" alt="5v5 Aram- Hỗn loạn đường giữa" class="img_item">
+                    <p>5v5 Aram- Hỗn loạn đường giữa</p>
+                </button>
+                <button class="item" onclick="showDetails('3v3 - Đấu trường bộ ba')">
+                    <img src="image/item4.png" alt="3v3 - Đấu trường bộ ba" class="img_item">
+                    <p>3v3 - Đấu trường bộ ba</p>
+                </button>
+                <button class="item" onclick="showDetails('1v1-Thành phố đen')">
+                    <img src="image/item5.png" alt="1v1-Thành phố đen" class="img_item">
+                    <p>1v1-Thành phố đen</p>
+                </button>
+            </div>
+            <!-- Khu vực hiển thị thông tin chi tiết -->
+            <div id="modeDetails" class="d-none">
+                <button class="btn btn-secondary" onclick="backToGameModes()">Quay lại</button>
+                <div id="modeContent"></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const gameModes = {
+            "Cúp Vinh Quang": {
+                image: "image/item1.png",
+                description: `
+            <p>Cúp Vinh Quang diễn ra vào cuối tuần từ <strong>20h đến 22h30</strong> và sẽ chỉ mở theo các đợt đặc biệt.</p>
+            <p>Người chơi ghép đơn hoặc ghép đội để tìm trận <strong>Cấm/Chọn</strong> như đấu xếp hạng.</p>
+            <p>Mỗi mùa Cúp Vinh Quang có <strong>4 vòng (4 ngày)</strong> thi đấu, mỗi ngày sẽ có 3 trận đấu với kết quả được tính như sau:</p>
+            <ul>
+                <li>Thắng 0 trận sẽ đạt hạng 4</li>
+                <li>Thắng 1 trận sẽ đạt hạng 3</li>
+                <li>Thắng 2 trận sẽ đạt hạng 2</li>
+                <li>Thắng 3 trận sẽ đạt hạng 1</li>
+            </ul>
+            <p>Hạng 1 sẽ nhận được Cúp kèm ghi chú tương ứng về số lần đạt hạng 1 trong mùa tương ứng. Ngoài ra, các đội tham gia sẽ nhận một lượng điểm để đổi quà trong phần sự kiện.</p>
+        `
+            },
+            "5v5-Bình nguyên vô tận": {
+                image: "image/item2.png",
+                description: `
+            <p><strong>Bình Nguyên Vô Tận</strong> là bản đồ 5v5 với 3 đường quen thuộc, bao gồm cả quái vật rừng và quái vật khổng lồ. Mục tiêu chính vẫn là <strong>phá hủy nhà chính</strong> của đối phương.</p>
+        `
+            },
+            "5v5 Aram- Hỗn loạn đường giữa": {
+                image: "image/item3.png",
+                description: `
+            <p><strong>Hỗn loạn đường giữa</strong> xảy ra ở Đấu trường độc đạo. Đây là bản đồ đấu 5v5 nhưng chỉ có <strong>1 đường di chuyển duy nhất</strong>, đồng thời không hề có tài nguyên rừng.</p>
+        `
+            },
+            "3v3 - Đấu trường bộ ba": {
+                image: "image/item4.png",
+                description: `
+            <p><strong>Đấu trường Bộ Ba</strong> là chế độ chơi 3vs3 có 1 đường di chuyển chính và 2 đường rừng. Một chế độ chơi mới lạ dành cho bất kỳ người chơi nào muốn khám phá.</p>
+        `
+            },
+            "1v1-Thành phố đen": {
+                image: "image/item4.png",
+                description: `
+            <p><strong>Đơn đấu (Thành phố đen)</strong>: Là chế độ chơi 1vs1, tại đây chỉ có duy nhất <strong>1 đường</strong> và không có tài nguyên rừng. Bản đồ này dành cho 2 người chơi muốn thể hiện các kỹ năng của bản thân với nhau.</p>
+        `
+            }
+        };
+
+        // Hàm hiển thị thông tin chi tiết về chế độ chơi
+        function showDetails(mode) {
+            const modeDetails = gameModes[mode];
+
+            if (modeDetails) {
+                // Ẩn các chế độ chơi
+                document.querySelector('.item_container').style.display = 'none';
+
+                // Hiển thị thông tin chi tiết
+                const content = document.getElementById('modeContent');
+                content.innerHTML = `
+            <img src="${modeDetails.image}" alt="${mode}" class="img-fluid">
+            <h3>${mode}</h3>
+            <p>${modeDetails.description}</p>
+        `;
+
+                // Hiển thị khu vực chi tiết
+                document.getElementById('modeDetails').classList.add('active');
+            } else {
+                console.error(`Không tìm thấy dữ liệu cho chế độ chơi: ${mode}`);
+            }
+        }
+
+        // Hàm quay lại chế độ chơi ban đầu
+        function backToGameModes() {
+            // Hiển thị lại khu vực chế độ chơi
+            document.querySelector('.item_container').style.display = 'grid';
+
+            // Ẩn khu vực chi tiết
+            document.getElementById('modeDetails').classList.remove('active');
+        }
+        //VỀ HAI NÚT MẸO NHỎ VÀ BẢN ĐỒ
+        const otherContents = {
+            "Bản đồ": {
+                image: "image/map.png", // Hình ảnh chung của bản đồ
+                description: `
+            <p><strong>Bản đồ</strong> trong Liên Quân được thiết kế để phù hợp với từng chế độ chơi. Mỗi bản đồ mang lại những chiến lược và lối chơi khác nhau. Dưới đây là các bản đồ phổ biến mà người chơi sẽ gặp phải:</p>
+            
+            <h3>1. Thành phố đen (Solo)</h3>
+            <img src="image/map1.jpg" alt="Thành phố đen" class="img-fluid">
+            <p>Nằm trong chế độ solo với duy nhất 1 đường và không có tài nguyên rừng. Lính ra rất nhanh, người chơi sẽ tận dụng điều đó kiếm thêm vàng và kinh nghiệm để chuẩn bị cho một cuộc so tài đỉnh cao với đối phương. Tại đây, từng là nơi so tài của rất nhiều cao thủ nổi tiếng với những trận đánh kịch tính đến nghẹt thở.</p>
+            
+            <h3>2. Đấu trường bộ ba (3v3)</h3>
+            <img src="image/map3.jpg" alt="Đấu trường bộ ba" class="img-fluid">
+            <p>Chế độ chơi 3v3 có 1 đường chính và 2 đường rừng. Đây là lựa chọn dành cho người chơi muốn thể hiện kỹ năng nhưng không quá căng thẳng. Mục tiêu của bạn sẽ nhiều hơn khi làm việc cùng đồng đội, lựa chọn chiến lược và các combo để chiến thắng.</p>
+            
+            <h3>3. Bình Nguyên Vô Tận (5v5)</h3>
+            <img src="image/map5.jpg" alt="Bình Nguyên Vô Tận" class="img-fluid">
+            <p>Đây là bản đồ quen thuộc nhất trong Liên Quân, với 3 làn đường, các bụi rậm, địa hình và các trụ. Mỗi người chơi phải chọn đúng vị trí và đảm bảo chiến thuật ăn ý cùng đồng đội để chiến thắng. Ẩn mình trong bụi rậm hoặc sử dụng địa hình để chiến đấu là một phần quan trọng trong chiến lược.</p>
+        `
+            },
+            "Mẹo nhỏ": {
+                image: "image/tips.png", // Hình ảnh chung cho mẹo nhỏ
+                description: `
+            <p><strong>Mẹo nhỏ</strong> giúp người chơi Liên Quân nâng cao kỹ năng và chiến lược trong từng trận đấu. Dưới đây là các mẹo về từng đường trong trò chơi:</p>
+
+            <h3>1. Đường Caesar</h3>
+            <img src="image/caesar.jpg" alt="Đường Caesar" class="img-fluid">
+            <p>Đường này chủ yếu dành cho đấu sĩ hoặc đỡ đòn. Địa hình khá nguy hiểm, yêu cầu người chơi farm cẩn thận. Hạ Linh vũ thú đường tà thần sẽ giúp nhận kinh nghiệm nhiều hơn và tạo cơ hội phối hợp với tướng đi rừng hoặc tướng mid để mai phục kẻ địch.</p>
+            
+            <h3>2. Đường giữa</h3>
+            <img src="image/mid.jpg" alt="Đường giữa" class="img-fluid">
+            <p>Đường giữa thường được pháp sư chọn. Lính đường giữa có cự ly ngắn nhưng giáp cao, còn pháp sư gây sát thương phép. Pháp sư có thể dọn lính nhanh và hỗ trợ các đường khác khi cần thiết.</p>
+            
+            <h3>3. Đường Rồng</h3>
+            <img src="image/rồng.jpg" alt="Đường Rồng" class="img-fluid">
+            <p>Đường này thích hợp cho xạ thủ. Địa hình an toàn và có thể farm lính xa. Xạ thủ sẽ có thể di chuyển hỗ trợ các đường khác hoặc tham gia giao tranh khi có đủ trang bị.</p>
+            
+            <h3>4. Đường rừng</h3>
+            <img src="image/rừng.jpg" alt="Đường rừng" class="img-fluid">
+            <p>Đây là nơi các sát thủ hoặc đấu sĩ có thể hỗ trợ mạnh mẽ. Giai đoạn đầu, người chơi nhận tiền và kinh nghiệm qua việc hạ quái. Sau khi đạt cấp 4 và mở khóa chiêu 3, họ có thể phối hợp với đồng đội để phục kích kẻ địch.</p>
+            
+            <h3>5. Đường trợ thủ</h3>
+            <img src="image/trợ thủ.jpg" alt="Đường trợ thủ" class="img-fluid">
+            <p>Đây là đường dành cho trợ thủ hoặc đỡ đòn. Họ có ít nhu cầu vàng hơn và khả năng bảo vệ đồng đội mạnh mẽ hơn. Trong giai đoạn đầu, đi cùng rừng hoặc xạ thủ sẽ giúp tăng hiệu suất tấn công hoặc bảo vệ.</p>
+        `
+            }
+        };
+ // Hàm hiển thị nội dung
+function showContent(contentType) {
+    const contentData = otherContents[contentType];
+
+    if (contentData) {
+        // Ẩn các chế độ chơi
+        document.querySelector('.item_container').style.display = 'none';
+
+        // Hiển thị thông tin chi tiết
+        const content = document.getElementById('modeContent');
+        content.innerHTML = `
+            ${contentData.description}
+        `;
+
+        // Hiển thị khu vực chi tiết
+        document.getElementById('modeDetails').classList.add('active');
+    } else {
+        console.error(`Không tìm thấy dữ liệu cho: ${contentType}`);
+    }
+    // Làm sáng nút tương ứng
+    highlightButton(contentType);
+}
+
+// Hàm hiển thị danh sách các chế độ chơi
+function showGameModes() {
+    // Ẩn thông tin chi tiết
+    document.getElementById('modeDetails').classList.remove('active');
+    
+    // Hiển thị lại danh sách các nút chế độ chơi
+    document.querySelector('.item_container').style.display = 'grid';
+
+    // Làm sáng nút "Chế độ chơi"
+    highlightButton('game_mode');
+}
+
+// Hàm làm sáng nút khi nhấn vào
+function highlightButton(buttonId) {
+    // Xóa lớp active từ tất cả các nút
+    document.querySelectorAll('.button_content').forEach(button => {
+        button.classList.remove('active');
+    });
+
+    // Thêm lớp active cho nút đang nhấn
+    document.getElementById(buttonId).classList.add('active');
+}
+
+// Cập nhật sự kiện cho nút "Chế độ chơi"
+document.getElementById('game_mode').addEventListener('click', () => {
+    showGameModes();
+});
+// Cập nhật sự kiện khi nhấn vào "Bản đồ" hoặc "Mẹo nhỏ"
+document.getElementById('map_button').addEventListener('click', () => showContent('Bản đồ'));
+document.getElementById('tip_button').addEventListener('click', () => showContent('Mẹo nhỏ'));
+
+
+    </script>
+</body>

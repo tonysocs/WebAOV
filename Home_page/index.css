@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+iframe{
+    width: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, rgba(35, 35, 105, 0.929), rgb(3, 2, 52));
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/*Thanh điều hướng*/
+.home_section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 20vh;
+}
+
+nav {
+    width: 100vw;
+    display: flex;
+    padding: 3vw;
+    margin: 2px;
+    padding: 50px auto 10px auto;
+
+}
+
+nav button,
+span {
+    margin: auto;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px white;
+    border-radius: 5px;
+    padding: 3px
+}
+
+button.text {
+    background: transparent;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button.text::after {
+    content: '';
+    /* Tạo phần tử giả */
+    position: absolute;
+    bottom: 0;
+    /* Vị trí ở viền dưới */
+    left: 0;
+    width: 100%;
+    /* Dài bằng toàn bộ nút */
+    height: 2px;
+    /* Độ dày viền sáng */
+    background: rgba(255, 255, 255, 0.3);
+    /* Màu ánh sáng (trắng nhẹ) */
+    box-shadow: 0 -5px 15px rgba(255, 255, 255, 0.3);
+    /* Hắt sáng lên trên, nhẹ hơn */
+    transition: all 0.3s ease;
+    /* Hiệu ứng mượt khi hover */
+    opacity: 0;
+    /* Ẩn mặc định */
+}
+
+button.text:hover::after {
+    opacity: 1;
+    /* Hiển thị khi hover */
+}
+
+/*Thông tin về chúng tôi*/
+.esport-container{
+    position: absolute;
+    top: 30vh;
+    left: 5vh;
+    /* border: 1px solid white; */
+    padding-left: 30px;
+}
+.content {
+    position: relative;
+    /* margin-left: 5vw; */
+    width: 350px;
+    padding: 0px 20px;
+    background-color: rgba(0, 0, 0, 0);
+
+    border-left: 5px solid #ffffff;
+
+
+}
+
+/* .arrow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 50px;
+    height: 20px; */
+
+
+@keyframes glow {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.5);
+    }
+}
+
+.content h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ff99ff, 0 0 30px #ff99ff;
+    margin: 10px 0;
+}
+
+.content p {
+    font-size: 1em;
+    font-weight: bold;
+    color: #ff66cc;
+    text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.information p {
+    max-width: 300px;
+
+margin-top: 30px;
+    color: #ff66cc;    
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#learn_more{
+    position: absolute;
+    left:30%;
+}
+.read-more {
+    margin-top: 10px;
+    /* Khoảng cách so với văn bản */
+    padding: 10px 20px;
+    /* Khoảng cách trong nút */
+    background: linear-gradient(to right, #7d57ff, #ff00ff);
+    /* Hiệu ứng gradient */
+    color: #ffffff;
+    /* Màu chữ trắng */
+    border: none;
+    /* Không viền */
+    border-radius: 20px;
+    /* Bo góc nút */
+    font-size: 14px;
+    /* Cỡ chữ */
+    font-weight: bold;
+    /* Chữ đậm */
+    cursor: pointer;
+    /* Hiệu ứng con trỏ */
+    transition: all 0.3s ease-in-out;
+    /* Hiệu ứng mượt */
+}
+
+/* Hiệu ứng hover cho nút */
+.read-more:hover {
+    transform: scale(1.1);
+    /* Phóng to nút khi hover */
+    box-shadow: 0 4px 15px rgba(128, 0, 255, 0.4);
+    /* Hiệu ứng đổ bóng */
+}
+/*phần card*/
+.area_card{
+    /* border: 2px solid white; */
+    width: 60vw;
+    height: 60vh;
+    position:absolute;
+    top: 7vh;
+    left: 20vw;
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+   /* Đảm bảo vùng chứa có chiều cao */
+    overflow: hidden !important;
+    clip-path: inset(0 1.5% 0 1.5%);
+     /* Cắt bỏ 2.5% ở hai bên */
+ }
+ .card {
+    width: 20vw;
+    min-width: 200px ;
+    transition: all 0.3s ease-in-out;
+    /* Độ rộng card */
+    background-color: white;
+    /* Nền trắng */
+    border-radius: 15px;
+    /* Bo góc mềm mại */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Hiệu ứng đổ bóng */
+    overflow: hidden;
+    /* Để ảnh bo theo góc của card */
+    text-align: center;
+    /* Căn giữa nội dung */
+    /* margin: auto; */
+    /* Căn giữa card */
+    transition: all 0.3s ease-in-out;
+    /* Hiệu ứng mượt */
+    display: flex;             /* Bật Flexbox cho phần tử cha */
+    justify-content: center;   /* Căn giữa theo chiều ngang */
+    align-items: center;       /* Căn giữa theo chiều dọc */
+    height: 100%;              /* Đảm bảo chiều cao của container */
+}
+/* Ảnh chính */
+.card-image {
+    width: 70%;
+    
+   margin: 20px auto 0px auto ;
+    /* Ảnh full-width */
+    height: auto;
+    /* Giữ tỷ lệ ảnh */
+}
+/* Phần mô tả văn bản */
+.card-description {
+    padding: 15px;
+    /* Khoảng cách nội dung */
+    font-size: 16px;
+    /* Cỡ chữ */
+    font-weight: bold;
+    /* Chữ đậm */
+    color: #4c4c4c;
+    /* Màu chữ */
+}
+.bt_card{
+    position: absolute;
+    top: 80%;
+    left:28%;
+    margin: 20px auto 30px auto;         /* Căn giữa theo chiều ngang */
+    display: block;  
+}
+.swiper-slide {
+    transform: scale(0.8) !important;
+    transition: transform 0.3s ease-in-out !important;
+    
+  }
+  
+  .swiper-slide-active {
+    transform: scale(1) !important;
+    z-index: 1;
+  }
+.arrow img{
+    width: 8vw; max-width: 80px;
+}
+#arrow_right{
+    position: absolute;
+    right: 29%;
+}
+#arrow_left{
+    position: absolute;
+    left: 29%;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+    display: none; /* Ẩn nội dung mặc định */
+}
+.arrow:hover{
+    transform: scale(1.15);
+    transition: all 0.3s ease-in-out;
+}

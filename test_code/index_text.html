@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar_setuppage/intialize.css') }}">
+</head>
+
+<body>
+    <!--Thanh điều hướng-->
+    <iframe src="{{ url_for('static', filename='navbar_setuppage/intialize.html') }}" frameborder="0"></iframe>
+    <main>
+        <!--Khung tiêu đề-->
+        <div class="title">
+            <!-- <img src="image/background_titile.png" alt=""> -->
+            <p>⟡ Tứ Phương đại chiến mùa đông 2024 ⟡</p>
+            <div class="name_team">
+                <div id="name_teamA">
+                    <img src="{{ url_for('static', filename=teamA_logo) }}" alt="{{ teamA_name }}">
+                    <p>{{ teamA_name }}</p>
+                </div>
+                <div id="VS">
+                    <img src="{{ url_for('static', filename='image/VS.jpg') }}" alt="VS">
+                </div>
+                <div id="name_teamB">
+                    <img src="{{ url_for('static', filename=teamB_logo) }}" alt="{{ teamB_name }}">
+                    <p>{{ teamB_name }}</p>
+                </div>
+            </div>
+        </div>
+        <!--khung xem trận đấu-->
+        <div id="video_comment">
+            <div id="video_describe">
+                <div id="video">
+                    <iframe width="560" height="315"
+                    src="{{ video_link }}"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div id="describe">
+                    <h1>Mô tả về trận đấu</h1>
+                    <p>{{ description }}</p>
+                </div>
+            </div>
+            <div id="comment">
+                <form id="commentForm">
+                    <div id="nameInputContainer">
+                        <label for="username">Tên:</label>
+                        <input type="text" id="username" placeholder="Nhập tên của bạn">
+                    </div>
+                    <textarea id="commentText" placeholder="Nhập bình luận của bạn" required></textarea>
+                    <button type="submit">Gửi</button>
+                </form>
+
+                <!-- Danh sách comment -->
+                <div id="commentList"></div>
+            </div>
+        </div>
+        <div id="Them">
+
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const commentForm = document.getElementById("commentForm");
+            const nameInputContainer = document.getElementById("nameInputContainer");
+            const usernameInput = document.getElementById("username");
+            const commentText = document.getElementById("commentText");
+            const commentList = document.getElementById("commentList");
+
+            // Kiểm tra localStorage xem tên người dùng đã được lưu chưa
+            const savedUsername = localStorage.getItem("username");
+            if (!savedUsername) {
+                nameInputContainer.style.display = "block";
+            }
+
+            // Xử lý khi gửi form
+            commentForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const username = savedUsername || usernameInput.value.trim();
+                const comment = commentText.value.trim();
+
+                if (!comment) return; // Nếu bình luận rỗng, không làm gì
+
+                // Nếu chưa có tên trong localStorage, lưu lại
+                if (!savedUsername && username) {
+                    localStorage.setItem("username", username);
+                    nameInputContainer.style.display = "none";
+                }
+
+                // Thêm comment vào danh sách
+                addComment(username, comment);
+
+                // Xóa nội dung trong ô nhập bình luận
+                commentText.value = "";
+            });
+
+            // Hàm thêm comment vào danh sách
+            function addComment(username, comment) {
+                const commentItem = document.createElement("div");
+                commentItem.className = "comment-item";
+                commentItem.innerHTML = `
+      <span>${username}:</span>
+      <p>${comment}</p>
+    `;
+                commentList.appendChild(commentItem);
+
+                // Cuộn đến comment mới nhất
+                commentList.scrollTop = commentList.scrollHeight;
+            }
+        });
+
+    </script>
+</body>
+
+</html>
+
+<main>
+    <h1>16 ĐỘI TUYỂN XUẤT SẮC NHẤT KHIÊU CHIẾN TẠI VÒNG BẢNG TỨ PHƯƠNG ĐẠI CHIẾN MÙA ĐÔNG 2024</h1>
+    <div id="decription">
+        <p>Xin chào các Kiện Tướng, <br>
+            Hành Trình Tứ Phương Đại Chiến Mùa Đông 2024 đã tiến tới Vòng Bảng với sự góp mặt của 16 đội tuyển xuất
+            sắc nhất được tuyển chọn kỹ lưỡng từ hơn 2900 đội thi đấu tại 260 khu vực, trường học trên Toàn Quốc,
+            chính thức bắt đầu từ ngày 09/09 cho đến hết ngày 29/09/2024!</p>
+        <img src="" alt="">
+    </div>
+    <div class="participatings_teams">
+        <p class="d-inline-flex gap-1">
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                aria-expanded="false" aria-controls="collapseExample">
+                Link with href
+            </a>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Button with data-bs-target
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                Some placeholder content for the collapse component. This panel is hidden by default but revealed
+                when the user activates the relevant trigger.
+            </div>
+        </div>
+    </div>
+</main>

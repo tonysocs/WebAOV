@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/Website/navbar_setuppage/intialize.css">
+</head>
+<body>
+    <iframe src="/Website/navbar_setuppage/intialize.html" frameborder="0"></iframe>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Details</title>
+</head>
+<body>
+    <h1>Match Details</h1>
+    {% if match %}
+        <p>Match ID: {{ match['match_id'] }}</p>
+        <p>Team A Logo: {{ match['teamA_logo'] }}</p>
+        <p>Team A Name: {{ match['teamA_name'] }}</p>
+        <p>Team B Logo: {{ match['teamB_logo'] }}</p>
+        <p>Team B Name: {{ match['teamB_name'] }}</p>
+        <p>Score: {{ match['score'] }}</p>
+        <p>Video Link: {{ match['video_link'] }}</p>
+        <p>Description: {{ match['description'] }}</p>
+    {% else %}
+        <p>No match data available.</p>
+    {% endif %}
+</body>
+</html>
+
+<li>
+    <a href="http://127.0.0.1:5000/match/5">Match 1: ĐH RMIT SGS 1-2 CĐ FPT POLYTECHNIC TP.HCM</a>
+</li>
+<li>
+    <a href="http://127.0.0.1:5000/match/6">Match 2: ĐH NAM CẦN THƠ 2-0 ĐH CẦN THƠ</a>
+</li>
+<li>
+    <a href="http://127.0.0.1:5000/match/7">Match 3: ĐH CÔNG NGHỆ TP.HCM 2-0 ĐH KINH TẾ QUỐC DÂN</a>
+</li>
+<li>
+    <a href="http://127.0.0.1:5000/match/8">Match 4: ĐH SƯ PHẠM KỸ THUẬT TP.HCM 2-0 ĐH GIAO THÔNG VẬN TẢI TP.HCM</a>
+</li>
+<li>
+    <a href="http://127.0.0.1:5000/match/15">Match 5: CĐ FPT POLYTECHNIC TP.HCM 2-0 ĐH NAM CẦN THƠ</a>
+</li>
+<li>
+    <a href="http://127.0.0.1:5000/match/16">Match 6: ĐH CÔNG NGHỆ TP.HCM 2-0 ĐH SƯ PHẠM KỸ THUẬT TP.HCM</a>
+</li>
+<li>
+    <a href="http://127.0.0.1:5000/match/13">Match 7: ĐH RMIT SGS 0-2 ĐH CẦN THƠ</a>
+</li>
+<li>
+    <a href="http://127.0.0.1:5000/match/14">Match 8:ĐH KINH TẾ QUỐC DÂN 1-2 ĐH GIAO THÔNG VẬN TẢI TP.HCM</a>
+</li>

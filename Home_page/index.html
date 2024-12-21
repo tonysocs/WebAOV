@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arena of valor</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/match/static/navbar_setuppage/intialize.css">
+
+</head>
+
+<body>
+    <iframe src="/match/static/navbar_setuppage/intialize.html" frameborder="0"></iframe>
+        <!--2. information about us-->
+
+    </div>
+    <div class="esport-container">
+        <!-- <div class="arrow"></div> -->
+        <div class="content">
+            <!-- <img src="/index_image/right.png" alt="" width="50px"> -->
+            <h1>E-SPORT<br>HUB</h1>
+            <p>UNTANGLE THE WEB WITH US</p>
+        </div>
+        <div class="information">
+            <p>This website regularly updates news related to tournaments, providing users with the best experience.</p>
+        </div>
+        <div id="learn_more">
+            <button class="read-more">LEARN MORE</button>\
+        </div>
+    </div>
+    <!--Phần card-->
+     <!-- Swiper -->
+  <div class="swiper area_card">
+    <div class="swiper-wrapper">
+        <!--Slide 1-->
+      <div class="swiper-slide card">
+         <img src="/Home_page/index_image/final_match.png"  alt="Image1" class="card-image"/>
+         <div class="card-description">
+            <p>Cùng đón chờ nhà vô địch của Tứ Phương Đại Chiến 2024 nào. Let's go! 🎮</p>
+            <button class="read-more bt_card" onclick="window.location.href='http://127.0.0.1:5000/match/60'" >READ MORE</button>
+        </div>
+      </div>
+       <!--Slide 2-->
+      <div class="swiper-slide card">
+        <img src="/gameplay/image/item5.png" alt="Image2" class="card-image" />
+        <div class="card-description">
+            <p>Có sẵn sàng phô diễn kĩ năng thượng thừa của bạn trước mặt người khác không. Tìm hiểu về đấu trường 1v1 nào! 🎮</p>
+            <button class="read-more bt_card" onclick="window.location.href='http://127.0.0.1:3000/Website/gameplay/Gameplay.html'" >READ MORE</button>
+        </div>
+      </div>
+       <!--Slide 3-->
+      <div class="swiper-slide card">
+        <img src="/Home_page/index_image/ute_er.png" alt="Image3" class="card-image"/>
+        <div class="card-description">
+            <p>UTE-er đâu rồi <br> Sát cánh cùng HCMUTE khiêu chiến TPDC 2024🎮</p>
+            <button class="read-more bt_card" onclick="window.location.href='http://127.0.0.1:5000/match/22'">READ MORE</button>
+        </div>
+      </div>
+       <!--Slide 4-->
+      <div class="swiper-slide card">
+        <img src="/Home_page/index_image/cap_nhat.webp" alt="Image4"  class="card-image"/>
+        <div class="card-description">
+            <p>Các tín đồ AOV ơi! <br> Cùng điểm lại những cập nhật mới nhất của game nè !</p>
+            <button class="read-more bt_card" onclick="window.location.href='https://youtu.be/5UkTkUyHoLk?si=YJxSWFltD-Nv70nz'">READ MORE</button>
+        </div>
+      </div>
+     
+      
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Navigation Buttons -->
+    <div class="swiper-button-next arrow" id="arrow_right">
+      <img src="index_image/arrow_right.png" alt="Previous" />
+    </div>
+    <div class="swiper-button-prev arrow" id="arrow_left">
+      <img src="index_image/arrow_left.png" alt="Previous" />
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 3, // Hiển thị 3 thẻ cùng lúc
+      centeredSlides: true, // Card trung tâm luôn được đặt giữa
+      spaceBetween: -35, // Khoảng cách giữa các card
+      loop: true, // Lặp tuần hoàn
+     
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    // Đoạn code kiểm tra và ẩn phần tử
+const items = document.querySelectorAll('.card'); // Thay thế '.item' bằng class của các phần tử bạn muốn kiểm tra
+const container = document.getElementById('area_card');
+const containerWidth = container.offsetWidth;
+
+items.forEach(item => {
+    if (item.offsetLeft > containerWidth) {
+        item.style.display = 'hidden';
+    }
+});
+  </script>
+</body>
+
+</html>

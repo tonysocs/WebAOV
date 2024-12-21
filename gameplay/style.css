@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    display: grid;
+  place-items: center;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+/* chỉnh sửa "game play" */
+main>h1{
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: normal;
+  text-align: center;
+}
+/*Thiết lập vùng hiển thị*/
+section{
+  /* border: 2px solid white; */
+  position:absolute;
+  left: 0%;
+  height: 65vh;
+  width: 100vw;
+  margin-top: 5vh;
+  display: flex;
+}
+/* Thiết lập các content: Chế độ chơi, bản đồ, mẹo nhỏ */
+.content{
+  margin: 10px;
+  /* border: 1px solid yellow; */
+  flex: 0 0 25%;
+}
+/* Thiết lập container cho vùng hiển thị thông tin */
+.item_container{
+  /* border: 1px solid orange; */
+  margin: 10px;
+  flex: 1;
+  display: grid; /* Kích hoạt Grid Layout */
+  grid-template-columns: repeat(3, 1fr); /* Tối đa 3 cột mỗi hàng */
+  gap: 8%; /* Khoảng cách giữa các container con */
+  padding: 4%; /* Khoảng cách bên ngoài container lớn */
+  padding-top: 1%;
+  box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng kích thước */
+  background-color: rgba(25, 4, 101, 0.329);
+}
+/* Vị trí của từng item */
+.item{
+  /* border: 0.5px solid red; */
+  margin: 1%;
+}
+/* quay lại content: căn chỉnh giãn cách */
+.content{
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+/* Thiết lập cho các nút */
+.button_content{
+  height: 50%;
+  font-size: medium;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  color: white;
+  transition: transform 0.3s ease;
+}
+/* Thiết lập nút ở trang hiện tại */
+/* #game_mode{
+  background-color: rgb(150, 154, 154);
+} */
+/* Quay lại thiết lập cho từng item hiển thị */
+.item{
+  background-color: transparent;
+  border: none;
+  color: rgb(185, 181, 181);
+  width: 12vw;
+  height: auto;
+  display: flex;
+  flex-direction: column; /* Để các phần tử bên trong xếp theo chiều dọc */
+  justify-content: flex-start; /* Đảm bảo các phần tử trong container không bị xếp chồng lên nhau */
+  justify-content: center;
+}
+.item>img{
+  margin: 0px auto;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgb(74, 70, 70);
+  transition: transform 0.3s ease; /* Thêm hiệu ứng mượt mà khi hover */
+}
+.item>p{
+  margin: 1vh auto;
+}
+.item:hover{
+  cursor: pointer; 
+}
+.item:hover img{
+  transform: scale(1.05);
+  border-color: white;
+}
+.item:hover p{
+  color: white;
+}
+.button_content:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  background-color: rgba(150, 148, 148, 0.466);
+}
+/* Làm hiệu ứng  */
+#modeDetails {
+  display: none;
+}
+#modeDetails.active {
+  display: block;
+  overflow-y: auto;
+}
+button.btn-secondary {
+  margin-top: 20px;
+}
+/* Định nghĩa kiểu dáng cho nút khi nó được chọn */
+.button_content.active {
+  background-color: #f0b400;  /* Chọn màu sáng khi nút được chọn */
+  color: white;                /* Đổi màu chữ nếu cần */
+}
